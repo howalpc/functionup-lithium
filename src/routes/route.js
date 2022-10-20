@@ -1,42 +1,49 @@
 const express = require('express');
 const router = express.Router();
 
-
-let players = [
+let persons = [
   {
-    name: "manish",
-    dob: "1/1/1995",
-    gender: "male",
-    city: "jalandhar",
-    sports: ["swimming"],
+    name: "PK",
+    age: 10,
+    votingStatus: false,
   },
   {
-    name: "gopal",
-    dob: "1/09/1995",
-    gender: "male",
-    city: "delhi",
-    sports: ["soccer"],
+    name: "SK",
+    age: 20,
+    votingStatus: false,
   },
   {
-    name: "lokesh",
-    dob: "1/1/1990",
-    gender: "male",
-    city: "mumbai",
-    sports: ["soccer"],
+    name: "AA",
+    age: 70,
+    votingStatus: false,
+  },
+  {
+    name: "SC",
+    age: 5,
+    votingStatus: false,
+  },
+  {
+    name: "HO",
+    age: 40,
+    votingStatus: false,
   },
 ];
 
-router.post("/players", function (req, res) {
-  //LOGIC WILL COME HERE
-    let player = req.body;
-    let playerExists = players.find(p => p.name === player.name);  //check if player already exists
-    if (playerExists) {
-        res.send('Player already exists');
-    } else {
-        players.push(player);
-        res.send(player);
+router.post("/persons", function (req, res) {
+
+  let input = req.query.inputeage
+  for (i of persons) {
+    if (i.age >= input) {
+      i.votingStatus=true
     }
-});
+
+  }
+  return res.send(persons)
+
+
+
+    }
+);
 
 
 module.exports = router;
