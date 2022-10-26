@@ -15,5 +15,7 @@ router.get("/getUsersData", UserController.getUsersData)
 router.post("/createBook", BookController.createBook  )
 
 router.get("/getBooksData", BookController.getBooksData)
+router.get("/bookyear", BookController.year);
+router.get("/perticularebook", BookController.perticularebook);
 
 module.exports = router;
